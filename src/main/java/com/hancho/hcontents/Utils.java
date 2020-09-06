@@ -23,18 +23,18 @@ public class Utils {
     }
 
     public static String numToString(long time){
-        String leftTime = "";
+        String leftTime;
         int oneSecond = 1000;
         int oneMin = oneSecond * 60;
         int oneHour = oneMin * 60;
 
-        double hour = Math.floor(time / (oneHour));
-        double min = Math.floor((time % oneHour) / oneMin);
-        double second = Math.floor(((time % oneHour) % oneMin / oneSecond));
+        int hour = (int) Math.floor(time / (oneHour));
+        int min = (int) Math.floor((time % oneHour) / oneMin);
+        double second = ((time % oneHour) % oneMin / (double) oneSecond);
         if ((time / oneHour) > 0) {
-            leftTime = "§b" + (int) hour + "§f시간 §b" + (int) min + "§f분" + "§b" + second + "§f초";
+            leftTime = "§b" + hour + "§f시간 §b" + min + "§f분" + "§b" + second + "§f초";
         } else if ((time / oneMin) > 0) {
-            leftTime = "§b" + (int) min + "§f분" + "§b" + second + "§f초";
+            leftTime = "§b" + min + "§f분" + "§b" + second + "§f초";
         }else{
             leftTime = "§b" + second + "§f초";
         }
