@@ -1,0 +1,34 @@
+name: HContents
+main: com.hancho.hcontents.HContents
+version: 1.0.0
+author: Hancho
+api: [1.0.0]
+
+commands:
+  컨텐츠시작구역:
+    permission: "op"
+    description: "컨텐츠 시작 구역을 설정합니다"
+  컨텐츠종료구역:
+    permission: "op"
+    description: "컨텐츠 종료 구역을 설정합니다"
+  컨텐츠롤백추가:
+    permission: "op"
+    description: "컨텐츠 롤백 구역을 추가합니다"
+  컨텐츠롤백제거:
+    permission: "op"
+    description: "건텐츠 롤백 구역을 제거합니다"
+  컨텐츠시작블럭:
+    permission: "op"
+    description: "컨텐츠 시작블럭을 설정합니다"
+  컨텐츠제거:
+    permission: "op"
+    description: "컨텐츠를 삭제합니다."
+  컨텐츠추가:
+    permission: "op"
+    description: "컨텐츠를 추가합니다"
+  컨텐츠수정:
+    permission: "op"
+    description: "수정할 컨텐츠 선택"
+  컨텐츠목록:
+    permission: "op"
+    description: "컨텐츠 목록을 봅니다"
