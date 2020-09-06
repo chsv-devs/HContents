@@ -13,9 +13,7 @@ import com.hancho.hcontents.commands.RankCommand;
 
 import java.util.*;
 
-// 메모리 사용량을 늘리는 대신 성능을 우선시 함
 public class Content extends LinkedHashMap<String, Object> implements Listener{
-    //랭크, 초기지점 블럭, 도착지점 표지판
     public final Hashtable<String, Long> timeAttackRecord = new Hashtable<>();
     public ArrayList<Location[]> generatedRollBack = new ArrayList<>();
     public HashSet<String> nowPlaying = new HashSet<>();
@@ -141,19 +139,6 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
                     Math.max(pos1.z, pos2.z), pos1.getLevel());
 
             this.generatedRollBack.add(new Location[]{newPos1, newPos2, targetLoc});
-/*            pos1.y ++;
-            pos2.y ++;
-
-            while ((xm && pos1.x <= pos2.x) || (!xm && pos1.x >= pos2.x)){
-                while ((xm && pos1.z <= pos2.z) || (!xm && pos1.z >= pos2.z)){
-                    while ((xm && pos1.y <= pos2.y) || (!xm && pos1.y >= pos2.y)){
-                        this.generatedRollBack.put(pos1.hashCode(), targetLoc);
-                        pos1.y += ym ? 1 : -1;
-                    }
-                    pos1.z += zm ? 1 : -1;
-                }
-                pos1.x += xm ? 1 : -1;
-            }*/
         });
     }
 
@@ -279,7 +264,6 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
         Level level = this.startPos1.getLevel();
         if(level == null) return;
         if(!player.getLevel().getName().equals(this.startPos1.getLevel().getName())) return;
-        //player.showXboxProfile(player.getLoginChainData().getXUID());
 
         if(this.nowPlaying.contains(player.getName())) {
             if (isInside(this.endPos1, this.endPos2, player.x, player.y, player.z)){
@@ -288,10 +272,9 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
                 if(!this.timeAttackRecord.containsKey(player.getName())) return;
                 int time = (int) (System.currentTimeMillis() - this.timeAttackRecord.get(player.getName()));
                 this.addTimeAttack(player.getName(), time);
-                player.sendMessage(HContents.PREFIX + "소요된 시간 : " + (time / 1000) + "초");
+                player.sendMessage(HContents.PREFIX + "소요된 시간 : " + Utils.numToString(time) + "초");
                 return;
             }
-
             for (Location[] locations : this.generatedRollBack) {
                 if(this.isInside(locations[0], locations[1], player.x, player.y, player.z)){
                     player.teleport(locations[2]);
