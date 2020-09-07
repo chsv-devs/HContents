@@ -113,7 +113,7 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
     }
 
     public void addRollBack(Location pos1, Location pos2, Location targetLocation){
-        String posKey = Utils.locationToStringKey(pos1) + "-" + Utils.locationToStringKey(pos2);
+        String posKey = Utils.locationToStringKey(pos1) + ":" + Utils.locationToStringKey(pos2);
         String target = Utils.locationToStringKey(targetLocation);
         this.addRollBackData(posKey, target);
     }
@@ -123,7 +123,7 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
         //value = stringLocation-StringLocation = (지점1-지점2)
         this.generatedRollBack.clear();
         map.forEach((k, v) -> {
-            String[] posKey = k.split("-");
+            String[] posKey = k.split(":");
             Location pos1 = Utils.stringToLocation(posKey[0]);
             Location pos2 = Utils.stringToLocation(posKey[1]);
             Location targetLoc = Utils.stringToLocation(v);
