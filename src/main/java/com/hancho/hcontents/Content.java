@@ -272,7 +272,7 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
                 if(!this.timeAttackRecord.containsKey(player.getName())) return;
                 int time = (int) (System.currentTimeMillis() - this.timeAttackRecord.get(player.getName()));
                 this.addTimeAttack(player.getName(), time);
-                player.sendMessage(HContents.PREFIX + "소요된 시간 : " + Utils.numToString(time) + "초");
+                player.sendMessage(HContents.PREFIX + "소요된 시간 : " + Utils.numToString(time));
                 return;
             }
             for (Location[] locations : this.generatedRollBack) {
