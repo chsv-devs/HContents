@@ -25,7 +25,8 @@ public class RankCommand extends Command {
         int i = 1;
         for (String playerName : rank.keySet()) {
             int time = rank.get(playerName);
-            sb.append("§o§f[§b ").append(i).append("§f위 ] ").append(playerName).append(" §f: ").append(Utils.numToString(time));
+            sb.append("§o§f[§b ").append(i).append("§f위 ] ")
+                    .append(playerName).append(" §f: ").append(Utils.numToString(time)).append("\n");
             i ++;
         }
         if(sender.isPlayer()){

@@ -67,7 +67,7 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
         data.put(playerName, time);
         this.setTimeAttackData(data);
         Server.getInstance().broadcastMessage(HContents.PREFIX + playerName + "님이 §b" + this.getName() + "§f에서 "
-                + time / 1000D + "초로 §b" + this.getMyTimeAttackRank(playerName) + " 위 §f했습니다.");
+                + Utils.numToString(time) + "로 §b" + this.getMyTimeAttackRank(playerName) + " 위 §f했습니다.");
     }
 
     public int getMyTimeAttackRank(String playerName){
