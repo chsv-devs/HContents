@@ -190,6 +190,24 @@ public class HContents extends PluginBase implements Listener {
             }else{
                 sender.sendMessage(PREFIX + args[0] + "을 찾을 수 없습니다. /컨텐츠목록 을 시도해보세요.");
             }
+        }else if(command.getName().equals("컨텐츠순위삭제")){
+            Content content = this.queue.get(sender.getName());
+            if(content == null){
+                sender.sendMessage(PREFIX + "/컨텐츠수정 <컨텐츠이름> 명령어를 먼저 사용해주세요.");
+                return true;
+            }
+            if(args.length < 1){
+                sender.sendMessage(PREFIX + "/컨텐츠순위삭제 <닉네임>");
+                return true;
+            }
+            LinkedHashMap<String, Integer> data = content.getTimeAttackData();
+            if(data.containsKey(args[0])){
+                data.remove(args[0]);
+                content.setTimeAttackData(data);
+            }else{
+                sender.sendMessage(PREFIX + "해당 플레이어를 찾지 못했습니다. (대소문자 구분)");
+                return true;
+            }
         }
         return true;
     }

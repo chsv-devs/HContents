@@ -32,3 +32,6 @@ commands:
   컨텐츠목록:
     permission: "op"
     description: "컨텐츠 목록을 봅니다"
+  컨텐츠순위삭제:
+    permission: "op"
+    description: "특정 컨텐츠의 특정 플레이어의 기록을 지웁니다"
