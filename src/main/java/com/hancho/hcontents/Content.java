@@ -259,6 +259,7 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
     @EventHandler
     public void onMove(PlayerMoveEvent ev){
         Player player = ev.getPlayer();
+        if(player.getGamemode() == 1) return;
         Location start = this.startPos1;
         if(start == null) return;
         Level level = this.startPos1.getLevel();
