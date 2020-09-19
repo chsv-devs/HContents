@@ -277,6 +277,8 @@ public class Content extends LinkedHashMap<String, Object> implements Listener{
             }
             for (Location[] locations : this.generatedRollBack) {
                 if(this.isInside(locations[0], locations[1], player.x, player.y, player.z)){
+                    locations[2].pitch = player.pitch;
+                    locations[2].yaw = player.yaw;
                     player.teleport(locations[2]);
                     player.sendTitle("§f§oWhoosh!", "지정된 위치로 이동되었습니다", 10, 30, 10);
                     break;
